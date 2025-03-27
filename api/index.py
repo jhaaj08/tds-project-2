@@ -6,8 +6,11 @@ import zipfile
 import pandas as pd
 from io import BytesIO
 import httpx
+from mangum import Mangum
 
 app = FastAPI()
+handler = Mangum(app)
+
 
 # === AI Proxy Configuration ===
 AIPROXY_URL = "https://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
